@@ -247,3 +247,7 @@ eval "set -- $(
     )" '"$@"'
 
 exec "$JAVACMD" "$@"
+
+-Dorg.gradle.configureondemand=false
+-Dorg.gradle.dependency.verification=off
+-Dorg.gradle.unsafe.isolated-projects=false:ForceDependencyResolutionPlugin_resolveAllDependencies
