@@ -2,8 +2,15 @@ package com.handroid.vet_clinic.entity;
 
 import com.handroid.vet_clinic.enums.HealthState;
 import com.handroid.vet_clinic.enums.Sex;
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Table;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -53,10 +60,13 @@ public abstract class PetEntity {
 
     @Override
     public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
         PetEntity petEntity = (PetEntity) object;
-
         return Objects.equals(type, petEntity.type)
                 && Objects.equals(sex, petEntity.sex)
                 && Objects.equals(age, petEntity.age)

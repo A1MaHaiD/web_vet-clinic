@@ -10,6 +10,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -28,8 +29,8 @@ public abstract class PetDto {
 
     @Override
     public String toString() {
-        return "\nPet {" +
-                "type = " + type
+        return "\nPet {"
+                + "type = " + type
                 + ", sex = " + sex.getValues()
                 + ", age = " + age
                 + ", name = " + name
@@ -41,10 +42,13 @@ public abstract class PetDto {
 
     @Override
     public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
         PetDto petDto = (PetDto) object;
-
         return Objects.equals(type, petDto.type)
                 && Objects.equals(sex, petDto.sex)
                 && Objects.equals(age, petDto.age)

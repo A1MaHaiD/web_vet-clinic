@@ -1,11 +1,12 @@
 package com.handroid.vet_clinic.entity;
 
-import com.handroid.vet_clinic.enums.HealthState;
-import com.handroid.vet_clinic.enums.Sex;
 import com.handroid.vet_clinic.enums.Size;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Objects;
 
@@ -35,11 +36,16 @@ public class DogEntity extends PetEntity {
 
     @Override
     public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        if (!super.equals(object)) {
+            return false;
+        }
         DogEntity dog = (DogEntity) object;
-
         return Objects.equals(size, dog.size);
     }
 
