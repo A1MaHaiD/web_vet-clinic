@@ -1,7 +1,5 @@
 package com.handroid.vet_clinic.dto;
 
-import com.handroid.vet_clinic.enums.HealthState;
-import com.handroid.vet_clinic.enums.Sex;
 import com.handroid.vet_clinic.enums.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,8 +17,8 @@ public class DogDto extends PetDto {
 
     @Override
     public String toString() {
-        return "\nPet {" +
-                "type = " + getType()
+        return "\nPet {"
+                + "type = " + getType()
                 + ", sex = " + getSex().getValues()
                 + ", age = " + getAge()
                 + ", name = " + getName()
@@ -31,18 +29,18 @@ public class DogDto extends PetDto {
                 + "}";
     }
 
-    public DogDto(String type, Sex sex, String age, String name, HealthState healthState, String ownerName, Size size) {
-        super(type, sex, age, name, healthState, ownerName);
-        this.size = size;
-    }
-
     @Override
     public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        if (!super.equals(object)) {
+            return false;
+        }
         DogDto dog = (DogDto) object;
-
         return Objects.equals(size, dog.size);
     }
 
