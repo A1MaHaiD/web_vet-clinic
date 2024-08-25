@@ -36,7 +36,7 @@ public class PetEntity {
     private HealthState healthState;
     @Column(name = "owner_name")
     @ManyToOne
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "username")
     private ClientEntity ownerName;
     @Column(name = "registration_date")
     private LocalDateTime registrationDate;
