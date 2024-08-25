@@ -9,7 +9,7 @@ import static java.util.Objects.isNull;
 
 @Component
 @RequiredArgsConstructor
-public class PetMapper implements Mapper<PetEntity, PetDto> {
+public final class PetMapper implements Mapper<PetEntity, PetDto> {
 
     private final ClientMapper clientMapper;
 

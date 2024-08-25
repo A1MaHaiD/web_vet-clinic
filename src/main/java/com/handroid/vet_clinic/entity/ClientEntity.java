@@ -25,8 +25,10 @@ public class ClientEntity {
     private String firsName;
     @Column(name = "last_name")
     private String lastName;
-    @Column(name = "email")
-    private String email;
+    @Column(name = "username")
+    private String username;
+    @Column(name = "password")
+    private String password;
     @Column(name = "pets")
     @OneToMany(mappedBy = "owner_name", cascade = CascadeType.ALL)
     private List<PetEntity> pets;

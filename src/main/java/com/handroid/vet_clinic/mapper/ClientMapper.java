@@ -9,7 +9,7 @@ import static java.util.Objects.isNull;
 
 @Component
 @RequiredArgsConstructor
-public class ClientMapper implements Mapper<ClientEntity, ClientDto> {
+public final class ClientMapper implements Mapper<ClientEntity, ClientDto> {
 
     private final PetMapper petMapper;
     private final LocationMapper locationMapper;
@@ -23,7 +23,8 @@ public class ClientMapper implements Mapper<ClientEntity, ClientDto> {
         target.setId(source.getId());
         target.setFirsName(source.getFirsName());
         target.setLastName(source.getLastName());
-        target.setEmail(source.getEmail());
+        target.setUsername(source.getUsername());
+        target.setPassword(source.getPassword());
         target.setPets(petMapper.mapEntityToDto(source.getPets()));
         target.setLocation(locationMapper.mapEntityToDto(source.getLocation()));
         return target;
@@ -38,7 +39,8 @@ public class ClientMapper implements Mapper<ClientEntity, ClientDto> {
         target.setId(source.getId());
         target.setFirsName(source.getFirsName());
         target.setLastName(source.getLastName());
-        target.setEmail(source.getEmail());
+        target.setUsername(source.getUsername());
+        target.setPassword(source.getPassword());
         target.setPets(petMapper.mapDtoToEntity(source.getPets()));
         target.setLocation(locationMapper.mapDtoToEntity(source.getLocation()));
         return target;

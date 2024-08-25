@@ -9,7 +9,7 @@ import static java.util.Objects.isNull;
 
 @Component
 @RequiredArgsConstructor
-public class LocationMapper implements Mapper<LocationEntity, LocationDto> {
+public final class LocationMapper implements Mapper<LocationEntity, LocationDto> {
 
     private final ClientMapper clientMapper;
 
