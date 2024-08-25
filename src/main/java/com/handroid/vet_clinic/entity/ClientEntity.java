@@ -1,19 +1,21 @@
 package com.handroid.vet_clinic.entity;
 
-import com.handroid.vet_clinic.enums.Location;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Column;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.CascadeType;
 import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.List;
 
-@Entity
 @Data
+@Entity
 @Table(name = "clients")
 public class ClientEntity {
     @Id
@@ -26,9 +28,10 @@ public class ClientEntity {
     @Column(name = "email")
     private String email;
     @Column(name = "pets")
-    //TODO this row
-    private List<PetEntity> petEntities = new ArrayList<>();
-    //TODO this row
+    @OneToMany(mappedBy = "owner_name", cascade = CascadeType.ALL)
+    private List<PetEntity> pets;
     @Column(name = "location")
-    private Location location;
+    @ManyToOne
+    @JoinColumn(name = "location_name")
+    private LocationEntity location;
 }
