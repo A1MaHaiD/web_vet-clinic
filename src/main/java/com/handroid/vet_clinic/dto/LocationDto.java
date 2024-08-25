@@ -9,11 +9,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor(staticName = "of")
-public class ClientDto {
+public class LocationDto {
     private Long id;
-    private String firsName;
-    private String lastName;
-    private String email;
-    private List<PetDto> pets;
-    private LocationDto location;
+    private String locationName;
+    private List<ClientDto> clients;
 }

@@ -2,81 +2,42 @@ package com.handroid.vet_clinic.entity;
 
 import com.handroid.vet_clinic.enums.HealthState;
 import com.handroid.vet_clinic.enums.Sex;
-import jakarta.persistence.GeneratedValue;
+import com.handroid.vet_clinic.enums.Size;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Objects;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
+@Entity
 @Table(name = "pets")
-public abstract class PetEntity {
-    //TODO this row
-    static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("HH:mm dd/MM/yyyy");
+public class PetEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "type")
-    private String type;
-    @Column(name = "sex")
-    private Sex sex;
-    @Column(name = "age")
-    private String age;
-    @Column(name = "name")
-    private String name;
+    @Column(name = "pet_type")
+    private String petType;
+    @Column(name = "pet_sex")
+    private Sex petSex;
+    @Column(name = "pet_age")
+    private String petAge;
+    @Column(name = "pet_size")
+    private Size petSize;
+    @Column(name = "pet_name")
+    private String petName;
     @Column(name = "health_state")
-    //TODO this row
     private HealthState healthState;
     @Column(name = "owner_name")
-    private String ownerName;
-    //TODO this row
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private ClientEntity ownerName;
     @Column(name = "registration_date")
-    private final LocalDateTime registrationDate = LocalDateTime.now();
-
-    @Override
-    public String toString() {
-        return "\nPet {"
-                + "id = " + id
-                + ", type = " + type
-                + ", sex = " + sex.getValues()
-                + ", age = " + age
-                + ", name = " + name
-                + ", healthState = " + healthState
-                + ", ownerName = " + ownerName
-                + ", registrationDate = " + registrationDate.format(FORMATTER)
-                + "}";
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        if (this == object) {
-            return true;
-        }
-        if (object == null || getClass() != object.getClass()) {
-            return false;
-        }
-        PetEntity petEntity = (PetEntity) object;
-        return Objects.equals(type, petEntity.type)
-                && Objects.equals(sex, petEntity.sex)
-                && Objects.equals(age, petEntity.age)
-                && Objects.equals(name, petEntity.name)
-                && Objects.equals(healthState, petEntity.healthState)
-                && Objects.equals(ownerName, petEntity.ownerName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(type, sex, age, name, healthState, ownerName);
-    }
+    private LocalDateTime registrationDate;
 }
