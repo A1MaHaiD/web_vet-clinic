@@ -34,6 +34,6 @@ public class ClientEntity {
     private List<PetEntity> pets;
     @Column(name = "location")
     @ManyToOne
-    @JoinColumn(name = "location_name")
+    @JoinColumn(name = "location_id")
     private LocationEntity location;
 }
