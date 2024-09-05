@@ -34,10 +34,9 @@ public class PetEntity {
     private String petName;
     @Column(name = "health_state")
     private HealthState healthState;
-    @Column(name = "owner_name")
     @ManyToOne
     @JoinColumn(name = "username")
-    private ClientEntity ownerName;
+    private ClientEntity owner;
     @Column(name = "registration_date")
     private LocalDateTime registrationDate;
 }
