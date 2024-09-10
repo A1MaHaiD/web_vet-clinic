@@ -22,7 +22,7 @@ public class ClientEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "first_name")
-    private String firsName;
+    private String firstName;
     @Column(name = "last_name")
     private String lastName;
     @Column(name = "username")
@@ -30,9 +30,8 @@ public class ClientEntity {
     @Column(name = "password")
     private String password;
     @Column(name = "pets")
-    @OneToMany(mappedBy = "owner_name", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private List<PetEntity> pets;
-    @Column(name = "location")
     @ManyToOne
     @JoinColumn(name = "location_id")
     private LocationEntity location;

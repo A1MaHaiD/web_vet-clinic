@@ -26,7 +26,7 @@ public final class PetMapper implements Mapper<PetEntity, PetDto> {
         target.setPetSize(source.getPetSize());
         target.setPetName(source.getPetName());
         target.setHealthState(source.getHealthState());
-        target.setOwnerName(clientMapper.mapEntityToDto(source.getOwnerName()));
+        target.setOwnerName(clientMapper.mapEntityToDto(source.getOwner()));
         target.setRegistrationDate(source.getRegistrationDate());
         return target;
     }
@@ -44,7 +44,7 @@ public final class PetMapper implements Mapper<PetEntity, PetDto> {
         target.setPetSize(source.getPetSize());
         target.setPetName(source.getPetName());
         target.setHealthState(source.getHealthState());
-        target.setOwnerName(clientMapper.mapDtoToEntity(source.getOwnerName()));
+        target.setOwner(clientMapper.mapDtoToEntity(source.getOwnerName()));
         target.setRegistrationDate(source.getRegistrationDate());
         return target;
     }

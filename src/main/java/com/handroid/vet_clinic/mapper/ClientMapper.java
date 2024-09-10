@@ -21,7 +21,7 @@ public final class ClientMapper implements Mapper<ClientEntity, ClientDto> {
         }
         ClientDto target = new ClientDto();
         target.setId(source.getId());
-        target.setFirsName(source.getFirsName());
+        target.setFirsName(source.getFirstName());
         target.setLastName(source.getLastName());
         target.setUsername(source.getUsername());
         target.setPassword(source.getPassword());
@@ -37,7 +37,7 @@ public final class ClientMapper implements Mapper<ClientEntity, ClientDto> {
         }
         ClientEntity target = new ClientEntity();
         target.setId(source.getId());
-        target.setFirsName(source.getFirsName());
+        target.setFirstName(source.getFirsName());
         target.setLastName(source.getLastName());
         target.setUsername(source.getUsername());
         target.setPassword(source.getPassword());
